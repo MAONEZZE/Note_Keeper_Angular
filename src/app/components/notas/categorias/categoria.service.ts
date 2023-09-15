@@ -20,16 +20,16 @@ export class CategoriaService{
     return this.http.post<Categoria>(this.API_URL, categoria)
   }
 
-  editar(){
-
+  editar(categoria: Categoria): Observable<Categoria>{
+    return this.http.put<Categoria>(`${this.API_URL}/${categoria.id}`, categoria);
   }
 
-  excluir(){
-
+  excluir(categoria: Categoria):Observable<Categoria>{
+    return this.http.delete<Categoria>(`${this.API_URL}/${categoria.id}`);
   }
 
-  selecionarPorId(){
-    
+  selecionarPorId(id: number): Observable<Categoria>{
+    return this.http.get<Categoria>(`${this.API_URL}/${id}`);
   }
 
   selecionarTodos(): Observable<Categoria[]>{
