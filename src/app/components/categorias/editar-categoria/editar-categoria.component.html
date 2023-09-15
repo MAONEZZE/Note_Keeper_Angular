@@ -1,0 +1,29 @@
+<section class="row justify-content-center">
+  <div class="col-lg-4 d-grid gap-4 mt-4">
+    <h1>Editar Categoria</h1>
+
+    <h2 class="fs-4 fw-light">
+      Você pode editar com facilidade todas as informações das suas categorias.
+    </h2>
+
+    <div class="card border-dark">
+      <div class="card-body">
+        <form (submit)="editarCat()" class="d-grid gap-3">
+          <!-- (submit)="criarNota()" -> é tipo um add.EventListener que chama a função criarNota() -->
+          <div class="mb-3">
+            <label for="titulo" class="form-label fs-5 fw-semibold">Título</label>
+            <input [(ngModel)]="categoria.titulo" type="text" placeholder="Digite um título!" class="form-control" id="titulo" name="titulo" />
+            <!-- [value]="nota.titulo" -> ta pegando o valor de nota e jogando pro input, mas é one way data bind-->
+          </div>
+
+          <div class="d-flex gap-2 my-2 justify-content-end">
+            <button type="submit" class="btn btn-primary px-5">Salvar</button>
+            <button routerLink="/categoria/listar" class="btn btn-outline-danger px-4">
+              Cancelar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

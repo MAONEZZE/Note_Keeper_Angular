@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Nota } from '../nota';
+import { Categoria } from '../../categorias/categoria';
 
 @Component({
   selector: 'app-nota',
@@ -7,10 +8,5 @@ import { Nota } from '../nota';
   styleUrls: ['./card-nota.component.css']
 })
 export class NotaComponent {
-  @Input() nota: Nota = {
-      id: 0,
-      titulo: 'Lavar o cachorro 🦮',
-      conteudo: 'Pegar a toalha > Pegar o Shampoo',
-      tema: 'dark'
-    };
+  @Input() nota: Nota = new Nota (0, '', '', 'dark', new Categoria('', 0));
 }

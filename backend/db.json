@@ -23,42 +23,11 @@
     {
       "id": 6,
       "titulo": "sssssssssssssss"
+    },
+    {
+      "id": 7,
+      "titulo": "çloff"
     }
   ],
-  "notas": [
-    {
-      "id": 1,
-      "titulo": "Lavar o cachorro 🦮",
-      "conteudo": "Pegar o shampoo > pegar a toalha",
-      "tema": "warning",
-      "categoriaId": 1
-    },
-    {
-      "id": 2,
-      "titulo": "Planejar as Aulas de Angular",
-      "conteudo": "Pesquisar material",
-      "tema": "info",
-      "categoriaId": 3
-    },
-    {
-      "id": 3,
-      "titulo": "Atualizar Aplicações Angular",
-      "conteudo": "Preparar projetos para as aulas",
-      "tema": "danger",
-      "categoriaId": 3
-    },
-    {
-      "titulo": "Teste Insomnia",
-      "conteudo": "Teste realizado pelo client do Insomnia",
-      "tema": "danger",
-      "categoriaId": 3,
-      "id": 4
-    },
-    {
-      "id": 5,
-      "titulo": "opopopopop",
-      "conteudo": "opopoppo",
-      "tema": "dark"
-    }
-  ]
+  "notas": []
 }

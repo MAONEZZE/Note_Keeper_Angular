@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { Nota } from "./nota";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
+import { Categoria } from "../categorias/categoria";
 
 @Injectable({
   providedIn: 'root',
@@ -33,6 +34,11 @@ export class NotaService{
 
   selecionarTodos(): Observable<Nota[]>{
     return this.http.get<Nota[]>(this.API_URL);
+  }
+
+  selecionarNotasPorCategoria(categoria: Categoria): Observable<Nota[]>{
+    const url = `http://localhost:3000/categorias/${categoria.id}?_embed=notas`
+    return this.http.get<Nota[]>(url);
   }
 
 }

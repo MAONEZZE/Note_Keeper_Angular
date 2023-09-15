@@ -14,10 +14,11 @@ import { EditarNotaComponent } from './components/notas/editar-nota/editar-nota.
 import { ExcluirNotaComponent } from './components/notas/excluir-nota/excluir-nota.component';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
-import { CriarCategoriaComponent } from './components/notas/categorias/criar-categoria/criar-categoria.component';
-import { ListarCategoriaComponent } from './components/notas/categorias/listar-categoria/listar-categoria.component';
-import { ExcluirCategoriaComponent } from './components/notas/categorias/excluir-categoria/excluir-categoria.component';
-import { EditarCategoriaComponent } from './components/notas/categorias/editar-categoria/editar-categoria.component';
+import { CriarCategoriaComponent } from './components/categorias/criar-categoria/criar-categoria.component';
+import { ListarCategoriaComponent } from './components/categorias/listar-categoria/listar-categoria.component';
+import { ExcluirCategoriaComponent } from './components/categorias/excluir-categoria/excluir-categoria.component';
+import { EditarCategoriaComponent } from './components/categorias/editar-categoria/editar-categoria.component';
+import { FiltrosPorCategoriaComponent } from './components/notas/filtros-por-categoria/filtros-por-categoria.component';
 
 @NgModule({
   declarations: [//todos os documentos declarados pelo app module, mas so faz isso automatico se criar pelo comando
@@ -31,7 +32,8 @@ import { EditarCategoriaComponent } from './components/notas/categorias/editar-c
     CriarCategoriaComponent,
     ListarCategoriaComponent,
     ExcluirCategoriaComponent,
-    EditarCategoriaComponent
+    EditarCategoriaComponent,
+    FiltrosPorCategoriaComponent
   ],
   imports: [
     BrowserModule,

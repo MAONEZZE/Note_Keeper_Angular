@@ -28,6 +28,11 @@
         ></textarea>
       </div>
 
+      <select [(ngModel)]="nota.categoriaId" name="categoria" class="form-control" >
+        <option>Selecione uma Categoria</option>
+        <option *ngFor="let categoria of categorias" [value]="categoria.id">{{categoria.titulo}}</option>
+      </select> 
+
       <label for="tema" class="form-label fs-5 fw-semibold">Tema</label>
       <div>
         <div class="form-check form-check-inline">

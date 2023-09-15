@@ -28,6 +28,11 @@
         ></textarea>
       </div>
 
+      <select [(ngModel)]="nota.categoriaId" name="categoria" class="form-control" >
+        <option>Selecione uma Categoria</option>
+        <option *ngFor="let categoria of categorias" [value]="categoria.id">{{categoria.titulo}}</option>
+      </select> 
+
       <label for="tema" class="form-label fs-5 fw-semibold">Tema</label>
       <div>
         <div class="form-check form-check-inline">
@@ -79,10 +84,11 @@
         <div class="card h-100 border-{{nota.tema}}">
           <div class="card-body">
             <div class="d-flex align-items-center">
-               <h5 class="card-title">{{nota.titulo}}</h5> <!-- one way data bind -->
+              <h3 class="card-title">{{nota.titulo}}</h3> <!-- one way data bind -->
               <span class="ms-auto fw-semibold text-muted">Id: {{nota.id}}</span>
             </div>
             <p class="card-text my-4">{{nota.conteudo}}</p>
+            <!-- <span class="ms-auto fw-semibold text-muted">Categoria: {{nota.categoria.titulo}}</span> -->
           </div>
         </div>
       </div>

@@ -1,0 +1,19 @@
+<div class="row g-2">
+  <div class="col-6 col-lg-1">
+    <button 
+    (click)="selecionarTodas()" 
+    ngbTooltip="Todas as notas" 
+    placement="left" 
+    class="app-badge-filtro bdge rounded-pill bg-primary w-100 p-2 fs-6 fw-semibold"
+    >Todas</button>
+  </div>
+
+  <div class="col-6 col-lg-1" *ngFor="let categoria of categorias">
+    <button 
+    (click)="selecionarTodas()" 
+    ngbTooltip="Filtrar por categoria: {{ categoria.titulo }}" 
+    placement="bottom" 
+    class="app-badge-filtro bdge rounded-pill bg-primary w-100 p-2 fs-6 fw-semibold"
+    >{{ categoria.titulo.split(" ")[0] }}</button>
+  </div>
+</div>

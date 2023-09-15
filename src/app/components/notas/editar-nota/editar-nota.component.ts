@@ -3,6 +3,8 @@ import { NotaService } from '../nota.service';
 import { Nota } from '../nota';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Categoria } from '../../categorias/categoria';
+import { CategoriaService } from '../../categorias/categoria.service';
 
 @Component({
   selector: 'app-editar-nota',
@@ -11,13 +13,24 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class EditarNotaComponent implements OnInit{
   nota: Nota;
+  categorias: Categoria[] = [];
 
-  constructor(private route: ActivatedRoute, private notaService: NotaService, private router: Router, private toastService: ToastrService){
-    this.nota = new Nota ('', '','dark',0);
-    
+  constructor(private route: ActivatedRoute, private notaService: NotaService, private categoriaService: CategoriaService, private router: Router, private toastService: ToastrService){
+    this.nota = new Nota (0, '', '', 'dark', new Categoria('', 0));
   }
 
   ngOnInit(): void {
+    this.trazerNota();
+    this.trazerCategoria();
+  }
+
+  trazerCategoria(){
+    this.categoriaService.selecionarTodos().subscribe((cat) => {
+      this.categorias = cat;
+    })
+  }
+
+  trazerNota(){
     const id = parseInt(this.route.snapshot.paramMap.get('id')!);//o ! diz que não vai vir null
     
     this.notaService.selecionarPorId(id).subscribe((nota) => {
