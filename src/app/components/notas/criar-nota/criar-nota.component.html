@@ -28,7 +28,7 @@
         ></textarea>
       </div>
 
-      <select [(ngModel)]="nota.categoriaId" name="categoria" class="form-control" >
+      <select [(ngModel)]="nota.categoriaId" name="categoriaId" class="form-control" >
         <option>Selecione uma Categoria</option>
         <option *ngFor="let categoria of categorias" [value]="categoria.id">{{categoria.titulo}}</option>
       </select> 
@@ -95,7 +95,7 @@
 
       <div class="d-flex gap-2 my-2 justify-content-end">
         <button type="submit" class="btn btn-primary px-5">Salvar</button>
-        <button routerLink="/notas/listar" class="btn btn-outline-danger px-4">Cancelar</button>
+        <button routerLink="/notas/listar" class="btn btn-outline-danger px-4" (click)="cancelarClicado()">Cancelar</button>
       </div>
     </form>
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Nota } from '../nota';
 import { NotaService } from '../nota.service';
 import { Categoria } from '../../categorias/categoria';
@@ -27,7 +27,6 @@ export class ListarNotasComponent implements OnInit{
       this.selecionarTodasNotas();
       return;
     }
-
     this.selecionarNotasPorCategoria(categoria);
   }
 
@@ -44,10 +43,9 @@ export class ListarNotasComponent implements OnInit{
   }
 
   selecionarNotasPorCategoria(categoria: Categoria){
-    this.notaService.selecionarNotasPorCategoria(categoria).subscribe((notas: Nota[]) =>{
-      this.notas = notas;
+    this.notaService.selecionarNotasPorCategoria(categoria).subscribe((notas) =>{
+      this.notas = notas
     })
 
-    
   }
 }

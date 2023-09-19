@@ -17,7 +17,7 @@ export class CriarNotaComponent implements OnInit{
   categorias: Categoria[]
 
   constructor(private notaService: NotaService, private categoriaService: CategoriaService,private router: Router, private toastService: ToastrService){
-    this.nota = new Nota (0, '', '', 'dark', new Categoria('', 0));
+    this.nota = new Nota (0, '', '', 'dark');
     this.categorias = [];
   }
 
@@ -27,10 +27,17 @@ export class CriarNotaComponent implements OnInit{
     })
   }
 
+  cancelarClicado(){
+    this.toastService.error(`Operação cancelada.`, 'Cancelamento');
+    this.router.navigate(["/notas", "listar"]);
+  }
+
   criarNota(){
     this.notaService.criar(this.nota).subscribe((nota) => {//o .criar é um Observable que é tipo uma promise
       this.toastService.success(`Nota ${nota.titulo} criada com sucesso.`, 'Sucesso');
     });
+
+
 
     this.router.navigate(["/notas", "listar"]);
     //aqui ele vai trocar o endereço de url e o angular reconhecer isso e vai chamar o novo componente

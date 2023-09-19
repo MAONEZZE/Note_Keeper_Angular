@@ -34,6 +34,11 @@ export class EditarCategoriaComponent implements OnInit{
     });
   }
 
+  cancelarClicado(){
+    this.toastService.error(`Operação cancelada.`, 'Cancelamento');
+    this.router.navigate(['/categoria', 'listar']);
+  }
+
   editarCat(){
     this.categoriaService.editar(this.categoria).subscribe((cat) => {
       this.toastService.success(`Categoria ${cat} editada com sucesso.`, 'Sucesso');

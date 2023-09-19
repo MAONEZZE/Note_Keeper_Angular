@@ -1,7 +1,12 @@
 import { Injectable } from "@angular/core";
-import { Categoria } from "./categoria";
-import { Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
+import { MatDialog } from "@angular/material/dialog";
+import { Observable, map, switchMap } from "rxjs";
+
+import { Categoria } from "./categoria";
+import { Nota } from "../notas/nota";
+import { NotaService } from "../notas/nota.service";
+
 
 
 @Injectable({
@@ -12,7 +17,7 @@ export class CategoriaService{
   private API_URL = 'http://localhost:3000/categorias';
   private http: HttpClient;
 
-  constructor(http: HttpClient){
+  constructor(http: HttpClient, private notaService: NotaService, private dialog: MatDialog){
     this.http = http;
   }
 
@@ -24,8 +29,31 @@ export class CategoriaService{
     return this.http.put<Categoria>(`${this.API_URL}/${categoria.id}`, categoria);
   }
 
-  excluir(categoria: Categoria):Observable<Categoria>{
-    return this.http.delete<Categoria>(`${this.API_URL}/${categoria.id}`);
+  excluir(categoria: Categoria, temDependentes: boolean): Observable<Categoria>{
+    if(temDependentes){
+      let resposta = window.confirm('Essa categoria está relacionado a mais notas e irá exclui-las, deseja mesmo excluir?')
+
+      if(resposta){
+        this.http.delete<Categoria>(`http://localhost:3000/notas?categoriaId=${categoria.id}`);
+        return this.http.delete<Categoria>(`${this.API_URL}/${categoria.id}`);  
+      }
+      else{
+        return new Observable;
+      }
+    }
+    else{
+      return this.http.delete<Categoria>(`${this.API_URL}/${categoria.id}`); 
+    }
+  }
+
+  possuiDependentes(categoria: Categoria): Observable<boolean>{
+    return this.notaService.selecionarNotasPorCategoria(categoria).pipe( map((notas: Nota[]) => {
+      return notas.length > 0;
+    }));
+
+    /*O pipe é usado para criar uma sequência de operadores que serão aplicados a um Observable 
+    para realizar transformações, filtragens, combinações e outras manipulações nos dados que 
+    fluem pelo Observable.*/
   }
 
   selecionarPorId(id: number): Observable<Categoria>{

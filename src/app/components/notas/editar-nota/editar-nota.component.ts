@@ -16,12 +16,17 @@ export class EditarNotaComponent implements OnInit{
   categorias: Categoria[] = [];
 
   constructor(private route: ActivatedRoute, private notaService: NotaService, private categoriaService: CategoriaService, private router: Router, private toastService: ToastrService){
-    this.nota = new Nota (0, '', '', 'dark', new Categoria('', 0));
+    this.nota = new Nota (0, '', '', 'dark');
   }
 
   ngOnInit(): void {
     this.trazerNota();
     this.trazerCategoria();
+  }
+
+  cancelarClicado(){
+    this.toastService.error(`Operação cancelada.`, 'Cancelamento');
+    this.router.navigate(["/notas", "listar"]);
   }
 
   trazerCategoria(){

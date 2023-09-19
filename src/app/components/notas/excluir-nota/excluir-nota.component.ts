@@ -14,7 +14,7 @@ export class ExcluirNotaComponent implements OnInit{
   nota: Nota;
 
   constructor(private route: ActivatedRoute, private notaService: NotaService, private router: Router, private toastService: ToastrService){
-    this.nota = new Nota (0, '', '', 'dark', new Categoria('', 0));
+    this.nota = new Nota (0, '', '', 'dark');
   }
 
   ngOnInit(): void {
@@ -23,6 +23,11 @@ export class ExcluirNotaComponent implements OnInit{
     this.notaService.selecionarPorId(id).subscribe((nota) => {
       this.nota = nota;
     });
+  }
+
+  cancelarClicado(){
+    this.toastService.error(`Operação cancelada.`, 'Cancelamento');
+    this.router.navigate(["/notas", "listar"]);
   }
   
   excluirNota(){

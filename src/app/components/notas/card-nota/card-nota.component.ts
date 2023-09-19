@@ -8,5 +8,5 @@ import { Categoria } from '../../categorias/categoria';
   styleUrls: ['./card-nota.component.css']
 })
 export class NotaComponent {
-  @Input() nota: Nota = new Nota (0, '', '', 'dark', new Categoria('', 0));
+  @Input() nota: Nota = new Nota (0, '', '', 'dark');
 }

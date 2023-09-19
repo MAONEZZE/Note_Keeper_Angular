@@ -23,6 +23,11 @@ export class CriarCategoriaComponent {
     this.toastService = toastService;
   }
 
+  cancelarClicado(){
+    this.toastService.error(`Operação cancelada.`, 'Cancelamento');
+    this.router.navigate(['/categoria', 'listar']);
+  }
+
   criarCat(){
     this.categoriaService.criar(this.categoria).subscribe((cat) => {
       this.toastService.success(`Categoria ${cat.titulo} criada com sucesso.`, 'Sucesso');

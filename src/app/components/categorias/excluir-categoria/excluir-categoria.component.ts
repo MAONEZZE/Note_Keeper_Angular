@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Categoria } from '../categoria';
 import { CategoriaService } from '../categoria.service';
+import { empty } from 'rxjs';
 
 @Component({
   selector: 'app-excluir-categoria',
@@ -33,14 +34,23 @@ export class ExcluirCategoriaComponent implements OnInit{
     });
   }
 
-  excluirCat(){
-    this.categoriaService.excluir(this.categoria).subscribe((cat) => {
-      this.toastService.success(`Categoria ${cat} excluida com sucesso.`, 'Sucesso');
-    });
+  cancelarClicado(){
+    this.toastService.error(`Operação cancelada.`, 'Cancelamento');
+    this.voltarParaListagem();
+  }
 
+  voltarParaListagem(){
     this.router.navigate(['/categoria', 'listar']);
   }
 
-
-
+  excluirCat(){
+    this.categoriaService.possuiDependentes(this.categoria).subscribe((temDependentes: boolean) => { 
+      const verificador: boolean = temDependentes 
+    
+      this.categoriaService.excluir(this.categoria, verificador).subscribe( () => {
+        this.toastService.success(`Categoria excluida com sucesso.`, 'Sucesso');
+        this.voltarParaListagem();
+      });
+    });
+  }
 }
