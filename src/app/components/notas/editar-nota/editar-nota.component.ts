@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { NotaService } from '../nota.service';
-import { Nota } from '../nota';
+import { NotaService } from '../../services/nota.service';
+import { Nota } from '../../models/nota';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Categoria } from '../../categorias/categoria';
-import { CategoriaService } from '../../categorias/categoria.service';
+import { Categoria } from '../../models/categoria';
+import { CategoriaService } from '../../services/categoria.service';
 
 @Component({
   selector: 'app-editar-nota',

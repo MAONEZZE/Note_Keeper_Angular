@@ -3,9 +3,9 @@ import { HttpClient } from "@angular/common/http";
 import { MatDialog } from "@angular/material/dialog";
 import { Observable, map, switchMap } from "rxjs";
 
-import { Categoria } from "./categoria";
-import { Nota } from "../notas/nota";
-import { NotaService } from "../notas/nota.service";
+import { Categoria } from "../models/categoria";
+import { Nota } from "../models/nota";
+import { NotaService } from "./nota.service";
 
 
 

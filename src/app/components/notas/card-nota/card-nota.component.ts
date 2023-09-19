@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { Nota } from '../nota';
-import { Categoria } from '../../categorias/categoria';
+import { Nota } from '../../models/nota';
+import { Categoria } from '../../models/categoria';
 
 @Component({
   selector: 'app-nota',

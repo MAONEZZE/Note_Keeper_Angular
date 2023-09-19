@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Categoria } from '../categoria';
-import { CategoriaService } from '../categoria.service';
+import { Categoria } from '../../models/categoria';
+import { CategoriaService } from '../../services/categoria.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
