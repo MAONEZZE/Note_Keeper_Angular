@@ -37,8 +37,10 @@ export class NotaService{
   }
 
   selecionarNotasPorCategoria(categoria: Categoria): Observable<Nota[]>{
-    const url = `http://localhost:3000/notas?categoriaId=${categoria.id}` 
+    const url = `http://localhost:3000/categorias/${categoria.id}/notas` 
+    //const url = `http://localhost:3000/notas?categoriaId=${categoria.id}` 
     return this.http.get<Nota[]>(url);
   }
 
+  
 }

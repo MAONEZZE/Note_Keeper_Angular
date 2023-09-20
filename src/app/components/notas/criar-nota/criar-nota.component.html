@@ -3,8 +3,7 @@
     <h1>Criar Nota</h1>
 
     <h2 class="fs-4 fw-light">
-      Crie uma nota personalizada para ajudar a organizar as tarefas do seu
-      dia-a-dia.
+      Crie uma nota personalizada para ajudar a organizar as tarefas do seudia-a-dia.
     </h2>
 
     <form (submit)="criarNota()" class="d-grid gap-3">
@@ -15,9 +14,7 @@
         <!-- [value]="nota.titulo" -> ta pegando o valor de nota e jogando pro input, mas é one way data bind-->
       </div>
       <div class="mb-3">
-        <label for="conteudo" class="form-label fs-5 fw-semibold"
-          >Conteúdo</label
-        >
+        <label for="conteudo" class="form-label fs-5 fw-semibold">Conteúdo</label>
         <textarea
           [(ngModel)]="nota.conteudo"
           placeholder="Digite o conteúdo!"
@@ -92,12 +89,10 @@
           </div>
         </div>
       </div>
-
       <div class="d-flex gap-2 my-2 justify-content-end">
         <button type="submit" class="btn btn-primary px-5">Salvar</button>
         <button type="button" routerLink="/notas/listar" class="btn btn-outline-danger px-4" (click)="cancelarClicado()">Cancelar</button>
       </div>
     </form>
-
   </div>
 </section>

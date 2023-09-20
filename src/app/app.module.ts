@@ -20,6 +20,8 @@ import { ExcluirCategoriaComponent } from './components/categorias/excluir-categ
 import { EditarCategoriaComponent } from './components/categorias/editar-categoria/editar-categoria.component';
 import { FiltrosPorCategoriaComponent } from './components/notas/filtros-por-categoria/filtros-por-categoria.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { FormularioCriarEditarNotasComponent } from './components/formulario-criar-editar-notas/formulario-criar-editar-notas.component';
+import { ListarNotasArquivadasComponent } from './components/notas/listar-notas-arquivadas/listar-notas-arquivadas.component';
 
 @NgModule({
   declarations: [//todos os documentos declarados pelo app module, mas so faz isso automatico se criar pelo comando
@@ -35,6 +37,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     ExcluirCategoriaComponent,
     EditarCategoriaComponent,
     FiltrosPorCategoriaComponent,
+    FormularioCriarEditarNotasComponent,
+    ListarNotasArquivadasComponent,
 
   ],
   imports: [

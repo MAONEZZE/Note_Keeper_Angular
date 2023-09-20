@@ -30,7 +30,7 @@ const routes: Routes = [
     component: EditarNotaComponent
   },
   {
-    path: 'notas/excluir/:id',//o :id significa q vai ser um parametro -> Ex: notas/editar/1
+    path: 'notas/excluir/:id',//o :id significa q vai ser um parametro -> Ex: notas/excluir/1
     component: ExcluirNotaComponent
   },
   {
